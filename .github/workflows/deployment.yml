@@ -1,0 +1,19 @@
+name: Deployment
+
+on:
+  workflow_call:
+    inputs:
+      env:
+        description: 'Name of the environment'
+        required: true
+        type: string
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.env }}
+    name: "Deploy Project"
+    steps:
+      - run: echo "Here we could call rsync"
+      - run: echo "vars.username _${{ vars.username }}_"
+      - run: echo "secrets.token _${{ secrets.token }}_"
